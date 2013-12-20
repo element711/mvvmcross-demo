@@ -27,14 +27,14 @@ namespace MvvmCross_Demo.Core.ViewModels
             set { _password = value; RaisePropertyChanged(() => Password); }
         }
 
-        private bool _validUsername;
+		private bool _validUsername = true;
         public bool ValidUsername
         {
             get { return _validUsername; }
             set { _validUsername = value; RaisePropertyChanged(() => ValidUsername); }
         }
 
-        private bool _validPassword;
+		private bool _validPassword = true;
         public bool ValidPassword
         {
             get { return _validPassword; }
@@ -102,13 +102,13 @@ namespace MvvmCross_Demo.Core.ViewModels
 
         private void Login()
         {
+			var credentials = new UserCredentials(Username, Password);
+			_authenticationManager.Credentials = credentials;
+
             if (SaveCredentials)
             {
-                var credentials = new UserCredentials(Username, Password);
                 _persistanceRepository.SaveUserCredentials(credentials);
             }
-
-            //TODO: Save to IAuthenticationManager
         }
 
         #endregion
