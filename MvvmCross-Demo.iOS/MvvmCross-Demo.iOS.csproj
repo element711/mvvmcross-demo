@@ -85,6 +85,10 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="packages.config" />
+    <Compile Include="Views\LoginView.cs" />
+    <Compile Include="Views\LoginView.designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -114,12 +118,10 @@
     <Reference Include="System.Core" />
     <Reference Include="monotouch" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\MvvmCross-Demo.Core\MvvmCross-Demo.Core.csproj">
-      <Project>{90b1be96-2fad-4b19-a730-44402c9a6844}</Project>
-      <Name>MvvmCross-Demo.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <ItemGroup>
+    <InterfaceDefinition Include="Views\LoginView_iPhone.xib" />
+    <InterfaceDefinition Include="Views\LoginView_iPad.xib" />
+  </ItemGroup>
 </Project>
